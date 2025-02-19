@@ -37,7 +37,7 @@ class LyricWidget3 extends ConsumerWidget {
           return;
         }
         scrollController.animateTo(
-          index * 50.0,
+          index * 30.0,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
         );
