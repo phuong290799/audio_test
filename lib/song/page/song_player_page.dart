@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:test_audio/common/constant/gradient.dart';
 import 'package:test_audio/model/song_model.dart';
 import 'package:test_audio/song/provider/lyric_provider.dart';
 import 'package:test_audio/song/provider/song_provider.dart';
@@ -78,7 +79,7 @@ class _SongPlayerPageState extends ConsumerState<SongPlayerPage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            ref.read(currentLineProvider.notifier).state = 0;
+            ref.read(currentLineProvider.notifier).updateLine(0);
             _audioPlayer.stop();
             Navigator.of(context).pop();
           },
@@ -94,13 +95,7 @@ class _SongPlayerPageState extends ConsumerState<SongPlayerPage> {
       ),
       body: Container(
         padding: const EdgeInsets.only(top: 120, left: 20, right: 20),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.blue, Colors.purple, Colors.pink],
-          ),
-        ),
+        decoration: const BoxDecoration(gradient: appGradient),
         child: Center(
           child: widgets[typeLyric.index],
         ),

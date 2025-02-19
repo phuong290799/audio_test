@@ -65,25 +65,15 @@ class LyricWidget3 extends ConsumerWidget {
 
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 500),
-                  transitionBuilder:
-                      (Widget child, Animation<double> animation) {
-                    return FadeTransition(
-                      opacity: animation,
-                      child: child,
-                    );
-                  },
-                  child: RichText(
-                    key: ValueKey(index),
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: isCurrentLine ? Colors.orange : Colors.white,
-                      ),
-                      children: _buildTextSpans(line, position),
+                child: RichText(
+                  key: ValueKey(index),
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: isCurrentLine ? Colors.orange : Colors.white,
                     ),
+                    children: _buildTextSpans(line, position),
                   ),
                 ),
               );
@@ -99,6 +89,10 @@ class LyricWidget3 extends ConsumerWidget {
 
     for (var indexedWord in currentLine.words.indexed) {
       LineModel word = indexedWord.$2;
+
+      if (indexedWord.$1 != 0 && indexedWord.$1 % 7 == 0) {
+        spans.add(const TextSpan(text: "\n"));
+      }
 
       for (var indexedChar in word.chars.indexed) {
         CharModel char = indexedChar.$2;

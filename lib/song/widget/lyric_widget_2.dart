@@ -33,7 +33,6 @@ class LyricWidget2 extends ConsumerWidget {
           child: RichText(
             key: ValueKey(currentLine.time),
             text: TextSpan(
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               children: _buildTextSpans(currentLine, position),
             ),
           ),
@@ -58,7 +57,7 @@ class LyricWidget2 extends ConsumerWidget {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 24,
-              color: isHighlighted ? Colors.orange : Colors.white,
+              color: isHighlighted ? Colors.amberAccent : Colors.white,
             ),
           ),
         );

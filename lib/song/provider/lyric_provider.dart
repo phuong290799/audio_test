@@ -30,7 +30,6 @@ class CurrentLineNotifier extends StateNotifier<int> {
 
   void updateLine(int index) {
     state = index;
-    print(index);
   }
 }
 

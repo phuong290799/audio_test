@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:test_audio/common/constant/gradient.dart';
 import 'package:test_audio/song/provider/song_provider.dart';
 
 import 'song_player_page.dart';
@@ -43,13 +44,7 @@ class _SongListPageState extends ConsumerState<SongListPage> {
       extendBodyBehindAppBar: true,
       body: Container(
         padding: const EdgeInsets.only(top: 120),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.blue, Colors.purple, Colors.pink],
-          ),
-        ),
+        decoration: const BoxDecoration(gradient: appGradient),
         child: ListView.builder(
           padding: const EdgeInsets.only(top: 10),
           itemCount: songs.length,

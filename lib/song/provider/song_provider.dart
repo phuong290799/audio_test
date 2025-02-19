@@ -14,7 +14,7 @@ extension TypeLyricExtension on TypeLyric {
       '';
 }
 
-final typeLyricProvider = StateProvider<TypeLyric>((ref) => TypeLyric.type1);
+final typeLyricProvider = StateProvider<TypeLyric>((ref) => TypeLyric.type3);
 
 final songListProvider = Provider<List<SongModel>>((ref) {
   ///Songs Temp
